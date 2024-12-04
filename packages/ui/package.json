@@ -3,9 +3,21 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./button": "./src/root-component/button.tsx",
+    "./input": "./src/root-component/input.tsx",
+    "./selectionInput": "./src/root-component/selectionInput.tsx",
+    "./navbar": "./src/landing-components/navbar.tsx",
+    "./stript": "./src/landing-components/stript.tsx",
+    "./section": "./src/landing-components/section.tsx",
+    "./section2": "./src/landing-components/section2.tsx",
+    "./layoutNavbar": "./src/layout-components/layoutNavbar.tsx",
+    "./sidemenu": "./src/layout-components/sidemenu.tsx",
+    "./transctionchart": "./src/contents/transctionchart.tsx",
+    "./transactionCard": "./src/contents/transactionCard.tsx",
+    "./addMoney": "./src/contents/addmoney.tsx",
+    "./balance": "./src/contents/balance.tsx",
+    "./recentTransaction": "./src/contents/recentTransactions.tsx"
+    
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

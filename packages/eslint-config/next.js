@@ -10,6 +10,7 @@ module.exports = {
     require.resolve("@vercel/style-guide/eslint/next"),
     "turbo",
   ],
+
   globals: {
     React: true,
     JSX: true,

@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src", "../../apps/user_app/components/transactionCard.tsx", "../../apps/user_app/components/navbar.tsx"],
   "exclude": ["node_modules", "dist"]
 }

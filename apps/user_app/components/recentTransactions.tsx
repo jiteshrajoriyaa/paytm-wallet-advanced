@@ -31,7 +31,7 @@ export const RecentTransations = ({ transactions }: txnProps) => {
                         </div>
                         <div>
                             <div className="flex flex-col justify-center text-green-600 font-semibold">
-                                + Rs {t.amount / 100}
+                                + Rs {t.amount/100}
                             </div>
                             <div className="flex flex-col justify-center text-sm text-purple-400">
                                 {t.status}

@@ -20,8 +20,8 @@ export const authOptions = {
                         }
                     })
 
-                    if (existingUser?.passowrd) {
-                            const passwordValidation = await bcrypt.compare(credentials?.password, existingUser.passowrd);
+                    if (existingUser?.password) {
+                            const passwordValidation = await bcrypt.compare(credentials?.password, existingUser.password);
                             if (passwordValidation) {
                                 return {
                                     id: existingUser.id.toString(),

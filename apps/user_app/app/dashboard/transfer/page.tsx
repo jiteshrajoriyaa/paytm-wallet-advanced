@@ -26,7 +26,7 @@ async function getBalance() {
         };
     } catch (error) {
         console.error("Error fetching balance:", error);
-        return { amount: 0, locked: 0 }; // Return default balance on error
+        return { amount: 0, locked: 0 }; 
     }
 }
 
@@ -76,6 +76,6 @@ export default async function Transfer() {
         );
     } catch (error) {
         console.error("Error in Transfer component:", error);
-        return <p>Something went wrong. Please try again later.</p>; // Display an error message
+        return <p>Something went wrong. Please try again later.</p>; 
     }
 }

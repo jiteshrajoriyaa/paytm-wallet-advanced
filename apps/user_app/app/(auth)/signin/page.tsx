@@ -88,9 +88,12 @@ export default function Signin() {
                             : "Sign in"}</Button>
                     </form>
                     <div className="text-center text-slate-500	 text-sm pt-10 font-sm font-sans">By Signing Up you agree to our <span className="text-customBlue">T&C</span> and <span className="text-customBlue">Privacy Policy</span></div>
+                    <Link className="bg-customBlue hover:bg-customDarkBlue text-white p-2 font-sans rounded-md font-semibold flex justify-center" href={'/visit'}>Click to see some registered users</Link>
                 </div>
             </div>
         </div>
 
     )
 }
+
+

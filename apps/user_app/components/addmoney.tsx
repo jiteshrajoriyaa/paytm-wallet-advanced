@@ -49,7 +49,6 @@ export const AddMoney = () => {
             <Button
                 onClick={async ()=>{
                     await onRampTransaction(bank, amount)
-                    await onRampTransaction(bank, amount)
                     window.open(redirectURL || "", "_blank")
                 }}
             >Add Money</Button>

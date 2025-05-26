@@ -9,24 +9,31 @@ interface paymentProps {
 }
 app.use(express.json());
 app.post('/hdfcWebhook', async (req, res) => {
+    try {
     const paymentInformation: paymentProps = {
         token: req.body.token,
         userId: req.body.user_identifier,
-        amount: req.body.amount
+        amount: String(req.body.amount * 100)
     }
 
-    const precessing = await db.onRampTransaction.findFirst({
+    const processing = await db.onRampTransaction.findFirst({
         where:{
             token: paymentInformation.token
         }
     })
-    if(precessing?.status == "Success") {
-        res.json({
+    
+    if(processing?.status == "Success") {
+        return res.json({
             msg: "Transaction has already been made"
         })
     }
 
-    try {
+    if(processing?.amount !== Number(paymentInformation?.amount)){
+        return res.status(400).json({
+            msg: "You are commiting a crime/Amount is different from the user is inserted before"
+        })
+    }
+
         await db.$transaction([
 
             db.balance.update({
@@ -50,7 +57,7 @@ app.post('/hdfcWebhook', async (req, res) => {
             })
         ])
 
-        res.status(200).json({
+        return res.status(200).json({
             message: "captured"
         })
 
@@ -61,6 +68,7 @@ app.post('/hdfcWebhook', async (req, res) => {
         })
     }
 })
+
 app.listen(3003, ()=>{
     console.log("Server is running on port 3003")
 });

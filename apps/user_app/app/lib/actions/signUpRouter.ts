@@ -2,6 +2,7 @@
 import prisma from "@repo/db/client";
 import bcrypt from "bcrypt";
 import { UserSchema } from "../zodValidation";
+import { nanoid } from "nanoid"
 
 export async function signUpRouter(name: string, phone: string, password: string) {
     try {
@@ -24,11 +25,27 @@ export async function signUpRouter(name: string, phone: string, password: string
         }
 
         const hashedPassword = await bcrypt.hash(password, 10)
+        const token = nanoid()
         const user = await prisma.user.create({
             data: {
                 name,
                 number: phone,
-                passowrd: hashedPassword
+                password: hashedPassword,
+                Balance: {
+                    create: {
+                        amount: 2020,
+                        locked: 0
+                    }
+                },
+                OnRampTransaction: {
+                    create: {
+                        startTime: new Date(),
+                        status: 'Success',
+                        amount: 20000,
+                        token: `signup_bonus_${token}`,
+                        provider: 'HDFC Bank'
+                    }
+                }
             }
         })
 
@@ -39,13 +56,9 @@ export async function signUpRouter(name: string, phone: string, password: string
         }
 
     } catch (e) {
-        async () => {
-            console.error(e)
+        console.error(e)
+        return {
+            message: "Signup failed"
         }
     }
-
-    return {
-        message: "Signup failed"
-    }
-
 }

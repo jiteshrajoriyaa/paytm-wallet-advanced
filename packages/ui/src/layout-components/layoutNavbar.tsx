@@ -14,12 +14,3 @@ export const LayoutNavbar = () => {
         </nav>
     )
 }
-
-return (
-    <div className="flex flex-grow flex-col gap-4 justify-left font-bold font-sans w-1/6 pl-10 pt-10 border-r ">
-         <div className="flex gap-2 items-center">
-            <img className="w-10" src="/layoutIcons/home.svg" alt="img" />
-            <Link className={`${pathname=='/dashboard/home' ? 'text-customBlue': ''} cursor-pointer `} href={"/dashboard/home"}>Home</Link>
-         </div>
-    </div>
-)

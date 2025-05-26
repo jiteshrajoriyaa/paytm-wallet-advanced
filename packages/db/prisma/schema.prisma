@@ -18,7 +18,7 @@ model User {
   email             String?             @unique
   name              String?
   number            String              @unique
-  passowrd          String
+  password          String
   OnRampTransaction OnRampTransaction[]
   Balance           Balance[]
   sentTransfers     P2PTransfer[]       @relation(name: "FromUserRelation")

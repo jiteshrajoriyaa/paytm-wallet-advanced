@@ -1,4 +1,3 @@
-import { Navbar } from "@repo/ui/navbar";
 import { Section } from "@repo/ui/section";
 import { Section2 } from "@repo/ui/section2";
 import { Stript } from "@repo/ui/stript";
@@ -17,7 +16,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="h-screen w-screen">
+      <div className="overflow-x-hidden">
         <Stript />
         <Section />
         <Section2 />

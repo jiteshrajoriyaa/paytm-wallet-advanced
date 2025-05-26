@@ -1,5 +1,4 @@
 "use client"
-import { Navbar } from "@repo/ui/navbar"
 import { SessionProvider} from "next-auth/react";
 import { RecoilRoot } from "recoil"
 import { AppBarWrapper } from "./appbarwrapper";

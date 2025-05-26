@@ -7,10 +7,11 @@ async function getTransactions() {
     const session = await getServerSession(authOptions);
     const from = session?.user?.id;
     const currentUserName = session?.user?.name;
-
-    if (!from) {
-        throw new Error("User is not Authenticated");
-    }
+    try {
+        if (!from) {
+            throw new Error("User is not Authenticated");
+        }
+    
 
     const txns = await prisma.p2PTransfer.findMany({
         where: {
@@ -30,10 +31,17 @@ async function getTransactions() {
             amount: t.amount,
             fromName: t.fromUser?.name ?? "Unknown Sender",
             toName: t.toUser?.name ?? "Unknown Receiver",
-            timeStamp: t.timestamp.toLocaleString(), // Format date to string
+            timeStamp: t.timestamp.toLocaleString(),
         })),
         currentUserName
     };
+    } catch (e) {
+        console.error(e)
+         return {
+            transactions: [],
+            currentUserName: "Guest"
+        };
+    }
 }
 
 export default async function TransactionPage() {
@@ -43,7 +51,9 @@ export default async function TransactionPage() {
             <p className="font-extrabold text-customDarkBlue text-4xl">Transaction</p>
             <div className="bg-customGray w-full p-8 rounded-lg flex flex-col gap-14">
                 <p className="font-bold text-2xl w-full border-b-2 border-gray-500 pb-4">Transactions</p>
-                <TransactionCard transaction={transactions} currentUserName={currentUserName} />
+                {transactions.length === 0 ? <div className="text-lg font-semibold">No transactions till now</div>
+                    : <TransactionCard transaction={transactions} currentUserName={currentUserName} />
+                }
             </div>
         </div>
     );

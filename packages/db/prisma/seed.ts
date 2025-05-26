@@ -12,10 +12,10 @@ async function main(){
         create: {
             name: 'Alice',
             number: '1234567890',
-            passowrd: await bcrypt.hash('alice',10),
+            password: await bcrypt.hash('alice',10),
             Balance:{
                 create:{
-                    amount: 2020,
+                    amount: 2000,
                     locked: 0
                 }
             },
@@ -23,7 +23,7 @@ async function main(){
                 create:{
                     startTime: new Date(),
                     status: 'Success',
-                    amount: 20000,
+                    amount: 2000,
                     token: 'token_1',
                     provider: 'HDFC Bank'
                 }
@@ -39,7 +39,7 @@ async function main(){
         create: {
             name: 'Bob',
             number: '0123456789',
-            passowrd: await bcrypt.hash('bob',10),
+            password: await bcrypt.hash('bob',10),
             Balance:{
                 create:{
                     amount: 2000,

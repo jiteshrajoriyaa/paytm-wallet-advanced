@@ -41,17 +41,15 @@ A full-stack web application that mimics core functionalities of Paytm Wallet. U
 git clone https://github.com/jiteshrajoriyaa/paytm-wallet.git
 cd paytm-wallet
 ```
-### 2. Clone the Repo
-install dependencies
-
+### 2. Install dependencies
 ```bash
 npm install
 ```
 ### 3. Set up your environmental variables
 # .env
-DATABASE_URL=postgresql://user:password@localhost:5432/paytm_wallet
-NEXTAUTH_SECRET=your_secret_here
-NEXTAUTH_URL=http://localhost:3000
+- DATABASE_URL=postgresql://user:password@localhost:5432/paytm_wallet
+- NEXTAUTH_SECRET=your_secret_here
+- NEXTAUTH_URL=http://localhost:3000
 
 ### 4. Run the app
 ```bash
@@ -66,6 +64,7 @@ You can use the following demo users to test the wallet features (P2P transfers,
 |--------------|-------------------------|------------|----------------|
 | Alice        | 1234567890              | alice      | ₹20            |
 | Bob          | 0123456789              | bob        | ₹20            |
+
 
 
 
